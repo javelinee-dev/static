@@ -68,27 +68,7 @@
                     <div class="row">
                                                 <div class="col-md-7">
                             <div class="col-title">Form Kontak</div>
-                            <form id="contactform" method="post" autocomplete="off" action="./hubungi-kami">
-                                <div class="form-items-holder">
-                                    <div class="form-text">
-                                        <input type="text" name="name" placeholder="Nama Anda" required>
-                                    </div>
-                                    <div class="form-text">
-                                        <input type="email" name="email" placeholder="Email Anda" required>
-                                    </div>
-                                    <div class="form-text">
-                                        <input type="text" name="subject" placeholder="Judul pesan Anda" required>
-                                    </div>
-                                    <div class="form-text">
-                                        <textarea name="message" placeholder="Pesan Anda ..." required></textarea>
-                                    </div>
-                                    <div id="g-recaptcha" class="g-recaptcha" style="transform:scale(0.77);-webkit-transform:scale(0.77);transform-origin:0 0;-webkit-transform-origin:0 0;"></div>
-                                    <input type="hidden" name="csrf_name" value="csrf5e273b23b0feb">
-                                    <input type="hidden" name="csrf_value" value="2ed25e92309052cf10e080dc51c34ccd">
-                                    <input type="hidden" id="captcha" name="captcha" value="">
-                                    <div class="form-button"><input id="submit" type="submit" value="Kirim Pesan"></div>
-                                </div>
-                            </form>
+                            <script async>(function(s,u,m,o,j,v){j=u.createElement(m);v=u.getElementsByTagName(m)[0];j.async=1;j.src=o;j.dataset.sumoSiteId='9ff5c63e79d095512d87fb6d1ab1daf4b7924a7ba0b5661cf14e7a70a39ee391';v.parentNode.insertBefore(j,v)})(window,document,'script','//load.sumo.com/');</script>
                         </div>
                         <div class="col-md-5 contacts">
                             <div class="col-title">Lokasi Server</div>
@@ -206,36 +186,10 @@
         function getScript(e,t){t=t||"";var a=document.createElement("script");a.src=e;var n=document.getElementsByTagName("head")[0],d=!1;a.onload=a.onreadystatechange=function(){d||this.readyState&&"loaded"!=this.readyState&&"complete"!=this.readyState||(d=!0,"function"==typeof t&&t(),a.onload=a.onreadystatechange=null,n.removeChild(a))},n.appendChild(a)}
         function getCss(e,t){t=t||"";var a=document.createElement("link");a.rel="stylesheet",a.href=e;var n=document.getElementsByTagName("head")[0],d=!1;a.onload=a.onreadystatechange=function(){d||this.readyState&&"loaded"!=this.readyState&&"complete"!=this.readyState||(d=!0,"function"==typeof t&&t(),a.onload=a.onreadystatechange=null)},n.appendChild(a)}
 
-        /* Render reCaptcha */
-        function renderRecaptcha(url){
-            var dsq = document.createElement("script"); dsq.type = "text/javascript"; dsq.async = true; dsq.defer = true;
-            dsq.src = url;
-            (document.getElementsByTagName("head")[0] || document.getElementsByTagName("body")[0]).appendChild(dsq);
-        }
-        /* Callback reCaptcha */
-        var onloadCallback = function() {
-            grecaptcha.render("g-recaptcha", {
-                "sitekey" : "6LdvuH8UAAAAAEf4jIksI2TBrbS7uQVFoz4Ul5mY",
-                "theme" : "light"
-            });
-        };
-
         /* Load JS */
         getScript('./js/jquery.min.js',function(){
             getScript('./js/bootstrap.min.js',function(){
-                getScript('./js/main.js',function(){
-                    
-                    var sourceapi = "https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit";
-                    var len = $('script[src*="'+sourceapi+'"]').length; 
-                    if (len === 0) {
-                        renderRecaptcha(sourceapi);
-                        return false;
-                        if ($('script[src*="'+sourceapi+'"]').length === 0) {
-                            renderRecaptcha(sourceapi);
-                            return false;
-                        }
-                    }
-                });
+                getScript('./js/main.js');
             });
             getScript('https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js',function(){
 				WebFont.load({google: {families: ['Palanquin+Dark:400,500']}});
